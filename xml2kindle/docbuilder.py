@@ -131,16 +131,11 @@ class DocBuilder:
         doc_inlang = extractor.get_inlang()
         doc_outlang = extractor.get_outlang()
         entry_parameters = extractor.get_entry_parameters()
-        entries = [mkEntry(param) for param in entry_parameters]
-        doc_content = mkKdict(entries)
-        doc_content_bytes = etree.tostring(
-            doc_content, xml_declaration=True, pretty_print=False, encoding="utf-8"
-        )  # gives bytes output
-        doc_content_str = doc_content_bytes.decode("utf-8")
+        doc_content = mkKdict(entry_parameters)
 
         # save document content
         doc_name = self.pname + ".xhtml"
-        self.save_document_content(name=doc_name, content=doc_content_str)
+        self.save_document_content(name=doc_name, content=doc_content)
 
         # make metadata
         dopf = DictOPF(

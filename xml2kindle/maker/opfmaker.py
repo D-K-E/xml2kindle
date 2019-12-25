@@ -8,10 +8,6 @@ from lxml import etree
 # end packages
 
 
-def getOpfPackageTemplate():
-    return
-
-
 class OPF:
     "opf object for holding metadata related to document"
 
